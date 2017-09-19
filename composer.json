@@ -1,0 +1,28 @@
+{
+    "name": "tatiana5/disallowlinks",
+    "type": "phpbb-extension",
+    "description": "Gives the option to disallow users to post url's before they have posted x number of posts. The number of posts required to post links is configurable in ACP &gt; General &gt; Post settings. Moderators are always allowed to post links",
+    "homepage": "https://phpbbguru.net/community",
+    "version": "0.0.1",
+    "time": "2017-09-18",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Татьяна5",
+            "homepage": "https://phpbbguru.net/community",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+      "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "Disallow links before x posts",
+        "soft-require": {
+            "phpbb/phpbb": "3.1.*@dev"
+        }
+    }
+}

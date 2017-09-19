@@ -1,0 +1,9 @@
+services:
+    tatiana5.disallowlinks.listener:
+        class: tatiana5\disallowlinks\event\listener
+        arguments:
+            - '@auth'
+            - '@config'
+            - '@user'
+        tags:
+            - { name: event.listener }
