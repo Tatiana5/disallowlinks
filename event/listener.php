@@ -91,9 +91,9 @@ class listener implements EventSubscriberInterface
 
 			$dl_config_vars = array(
 				'disallowlinks_num'	=> array(
-										'lang' => 'LINKS_AFTER_NUM_POSTS', 
-										'validate' => 'int:0',	
-										'type' => 'number:0:99999', 
+										'lang' => 'LINKS_AFTER_NUM_POSTS',
+										'validate' => 'int:0',
+										'type' => 'number:0:99999',
 										'explain' => true
 				),
 			);
