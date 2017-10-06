@@ -56,7 +56,7 @@ class listener implements EventSubscriberInterface
 
 	public function posting_modify_template_vars($event)
 	{
-		$url_status = ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
+		$url_status = $this->user->data['is_registered'] && ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
 
 		if (!$url_status)
 		{
@@ -72,7 +72,7 @@ class listener implements EventSubscriberInterface
 
 	public function disable_links_before_x_posts($event)
 	{
-		$url_status = ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
+		$url_status = $this->user->data['is_registered'] && ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
 
 		if (!$url_status)
 		{
