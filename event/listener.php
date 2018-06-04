@@ -24,18 +24,23 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\user */
 	protected $user;
 
+	/** @var \phpbb\event\dispatcher_interface */
+	protected $phpbb_dispatcher;
+
 	/**
 	* Constructor
 	 *
-	 * @param \phpbb\auth\auth                  $auth
-	 * @param \phpbb\config\config              $config
-	 * @param \phpbb\user                       $user
+	 * @param \phpbb\auth\auth                    $auth
+	 * @param \phpbb\config\config                $config
+	 * @param \phpbb\user                         $user
+	 * @param \phpbb\event\dispatcher_interface   $phpbb_dispatcher
 	*/
-	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\user $user)
+	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\user $user, \phpbb\event\dispatcher_interface $phpbb_dispatcher)
 	{
 		$this->auth = $auth;
 		$this->config = $config;
 		$this->user = $user;
+		$this->phpbb_dispatcher = $phpbb_dispatcher;
 	}
 
 	/**
@@ -73,6 +78,11 @@ class listener implements EventSubscriberInterface
 	public function disable_links_before_x_posts($event)
 	{
 		$url_status = $this->user->data['is_registered'] && ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
+
+		$vars = array(
+			'url_status'
+		);
+		extract($this->phpbb_dispatcher->trigger_event('tatiana5.disallowlinks.disable_links_before', compact($vars)));
 
 		if (!$url_status)
 		{
