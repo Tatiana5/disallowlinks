@@ -79,6 +79,13 @@ class listener implements EventSubscriberInterface
 	{
 		$url_status = $this->user->data['is_registered'] && ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
 
+		/**
+		* Modify url_status flag
+		*
+		* @event tatiana5.disallowlinks.disable_links_before
+		* @var	bool	url_status
+		* @since 2.0.0
+		*/
 		$vars = array(
 			'url_status',
 		);
