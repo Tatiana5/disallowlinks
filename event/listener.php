@@ -80,7 +80,7 @@ class listener implements EventSubscriberInterface
 		$url_status = $this->user->data['is_registered'] && ($this->user->data['user_posts'] >= $this->config['disallowlinks_num']) || $this->auth->acl_get('m_');
 
 		$vars = array(
-			'url_status'
+			'url_status',
 		);
 		extract($this->phpbb_dispatcher->trigger_event('tatiana5.disallowlinks.disable_links_before', compact($vars)));
 
