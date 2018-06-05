@@ -28,11 +28,8 @@ matrix:
       env: DB=mysqli
     - php: nightly
       env: DB=mysqli
-    - php: hhvm
-      env: DB=mysqli
   allow_failures:
     - php: nightly
-    - php: hhvm
   fast_finish: true
 
 env:
@@ -58,7 +55,7 @@ before_install:
   - sudo rm -rf phpbb-ext-acme-demo
 # Tempory hack to address EPV failure
 # https://www.phpbb.com/community/viewtopic.php?f=461&t=2430651&start=15#p14881401
-  - composer self-update 1.5.2 --rollback
+#  - composer self-update 1.5.2 --rollback
 # end temporary hack
 
 install:
