@@ -83,7 +83,7 @@ class listener implements EventSubscriberInterface
 		* Modify url_status flag
 		*
 		* @event tatiana5.disallowlinks.disable_links_before
-		* @var	bool	url_status
+		* @var	bool	url_status    Disable or not urls
 		* @since 2.0.0
 		*/
 		$vars = array(
