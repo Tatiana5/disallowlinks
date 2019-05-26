@@ -40,5 +40,5 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'LINKS_AFTER_NUM_POSTS'			=> 'Nombre minimum de messages avant de pouvoir publier des liens',
-	'LINKS_AFTER_NUM_POSTS_EXPLAIN'	=> 'Permet de limiter les nouveaux utilisateurs enregistrés de publier des liens dans leurs messages avant qu’il aient atteints un certain nombre de messages.',
+	'LINKS_AFTER_NUM_POSTS_EXPLAIN'	=> 'Permet de limiter les nouveaux utilisateurs enregistrés de publier des liens dans leurs messages avant qu’ils aient atteint un certain nombre de messages.',
 ));
